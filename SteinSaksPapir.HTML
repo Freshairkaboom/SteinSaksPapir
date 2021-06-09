@@ -4,9 +4,108 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Stein, saks, papir</title>
+    <!--<script defer src="SSPcontroller.js"></script>-->
+    <script defer src="SSPview.js"></script>
+    <script defer src="SSPmodel.js"></script>
+    <link rel="stylesheet" href="SteinSaksPapir.css">
 </head>
 <body>
-    
+<div id="app"></div>
+
 </body>
+<script>
+    //flere views
+    //slots, blackjack, ssp og roulette
+    //spiller -robot -respons(3 diver med onclick hver(bilder av stein saks papir))
+    //robot math.random(1-3)
+    //if (robot == 1)
+    //valutaen, kasperbuck.
+    //[] [] []
+    //   []
+    //  du vant eller du tapte
+    let appen = getId("app");
+    let showResult = getId('showResult');
+    let html = "";
+    let valgt = "";
+    let robotValg = 2;
+    let resultat = "Velg stein, saks eller papir";
+    let robotBilde = "blank.png";
+
+    sspView()
+    function sspView(){
+        html = `
+        <h1>Stein, saks, papir!</h1>
+        <hr>
+        <div id="showResult"><h1>${resultat}</h1></div>
+        <div class="board">
+        <img onclick="valgtNoe(1)" src="rock.png" alt="Stein">
+        <img onclick="valgtNoe(2)" src="scissor.png" alt="Saks">
+        <img onclick="valgtNoe(3)" src="paper.png" alt="Paper">
+        </div>
+        </br>
+        <div class="robotboard">
+        <div id="scoreboard"></div>
+        <div><img id="robotSlave" src="Robot.png" alt="Robotmann"></div>
+        <img class="robotValg" src="${robotBilde}" alt="Robotvalg">
+        </div>
+        `;
+        appen.innerHTML = html;
+    }
+    function valgtNoe(type) {
+        if (type === 1) {
+            valgt = "Stein";
+        }
+        else if (type === 2){
+            valgt = "Saks"
+        } else {
+            valgt = "Papir";
+        }
+        sspView();
+        robotMann();
+    }
+
+    function robotMann() {
+        robotValg = Math.ceil(Math.random() * 3);
+        if (robotValg == 1) robotBilde = "rock.png";
+        else if (robotValg == 2) robotBilde = "scissor.png";
+        else robotBilde = "paper.png";
+        vinner();
+        sspView();
+    }
+
+    function vinner() {
+        if (valgt == "Stein" && robotValg == 2) {
+            resultat = "Stein slår saks, du vant!";
+        }
+        else if(valgt == "Saks" && robotValg == 3) {
+            resultat = "Saks slår papir, du vant!";
+        }
+        else if(valgt == "Papir" && robotValg == 1) {
+            resultat = "Papir slår stein, du vant!"
+        }
+        else if (valgt == "Stein" && robotValg == 3) {
+            resultat = "Papir slår stein, du tapte!";
+        }
+        else if(valgt == "Saks" && robotValg == 1) {
+            resultat = "Stein slår saks, du tapte!";
+        }
+        else if(valgt == "Papir" && robotValg == 2) {
+            resultat = "Saks slår papir, du tapte!"
+        }
+        else if (valgt == "Stein" && robotValg == 1) {
+            resultat = "Begge valgte stein, uavgjort!";
+        }
+        else if(valgt == "Saks" && robotValg == 2) {
+            resultat = "Begge valgte saks, uavgjort!";
+        }
+        else if(valgt == "Papir" && robotValg == 3) {
+            resultat = "Begge valgte papir, uavgjort!"
+        }
+        sspView();
+    }
+    function getId(id) {
+        return document.getElementById(id);
+    }
+</script>
 </html>
