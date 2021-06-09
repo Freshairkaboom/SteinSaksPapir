@@ -1,3 +1,28 @@
 body{
-    
+    height: 100%;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    text-align: center;
+    background-color: rgb(1, 70, 47);
+    color: white;
+}
+
+.board {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
+
+.robotboard {
+    display: flex;
+    justify-content: center;
+}
+
+.robotValg {
+    width: 108px;
+    height: 108px;
+    margin: 60px;
 }
