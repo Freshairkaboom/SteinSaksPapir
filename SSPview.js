@@ -1,6 +1,5 @@
 //View
-sspView()
-function sspView(){
+function sspView() {
     html = `
     <div id="showResult"><h1>${resultat}</h1></div>
     <div class="score-board">
@@ -21,6 +20,8 @@ function sspView(){
     <div><img id="robotSlave" src="Robot.png" alt="Robotmann"></div>
     <img class="robotValg" src="${robotBilde}" alt="Robotvalg">
     </div>
+
+    <button onclick="back()">back</button>
     `;
     appen.innerHTML = html;
 }
