@@ -24,21 +24,27 @@ function robotMann() {
 function vinner() {
     if (valgt == "Stein" && robotValg == 2) {
         resultat = "Stein slår saks, du vant!";
+        youScore++;
     }
     else if(valgt == "Saks" && robotValg == 3) {
         resultat = "Saks slår papir, du vant!";
+        youScore++;
     }
     else if(valgt == "Papir" && robotValg == 1) {
         resultat = "Papir slår stein, du vant!"
+        youScore++;
     }
     else if (valgt == "Stein" && robotValg == 3) {
         resultat = "Papir slår stein, du tapte!";
+        robotScore++;
     }
     else if(valgt == "Saks" && robotValg == 1) {
         resultat = "Stein slår saks, du tapte!";
+        robotScore++;
     }
     else if(valgt == "Papir" && robotValg == 2) {
         resultat = "Saks slår papir, du tapte!"
+        robotScore++;
     }
     else if (valgt == "Stein" && robotValg == 1) {
         resultat = "Begge valgte stein, uavgjort!";
