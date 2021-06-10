@@ -108,10 +108,9 @@ function stand() {
     } else if (blackJack.aiValue >= 17 && blackJack.aiValue <= 21 && blackJack.playerValue > blackJack.aiValue) {
         blackJack.winner = 2;
         status = "Gratulerer du har vunnet";
-    } else if (blackJack.aiValue === blackJack.playerValue && blackJack.playerValue >= 21 && blackJack.aiValue >= 21) {
+    } else if (blackJack.aiValue === blackJack.playerValue && blackJack.playerValue <= 21 && blackJack.aiValue <= 21) {
         status = "Det ble uavgjort!"
         blackJack.winner = 1;
-        return;
     } else if (blackJack.aiValue <= 17) {
         hitRobot();
         stand();
