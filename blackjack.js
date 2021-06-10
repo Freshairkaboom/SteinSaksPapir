@@ -36,7 +36,6 @@ function spillet() {
     <br/>
     ${status || ""}
     ${restarted || ""}
-    <button onclick="back()">back</button>
     `;
     appen.innerHTML = html;
 }
@@ -109,7 +108,7 @@ function stand() {
     } else if (blackJack.aiValue >= 17 && blackJack.aiValue <= 21 && blackJack.playerValue > blackJack.aiValue) {
         blackJack.winner = 2;
         status = "Gratulerer du har vunnet";
-    } else if (blackJack.aiValue === blackJack.playerValue && blackJack.blackJackAiBust == false && blackJack.blackJackBust == false) {
+    } else if (blackJack.aiValue === blackJack.playerValue && blackJack.playerValue >= 21 && blackJack.aiValue >= 21) {
         status = "Det ble uavgjort!"
         blackJack.winner = 1;
         return;
