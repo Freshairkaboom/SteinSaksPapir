@@ -11,6 +11,7 @@ let youScore = 0;
 let robotScore = 0;
 let status = "";
 let restarted = ""
+let index = 1;
 let blackJack = {
 	playerValue: 0,
 	blackJackBust: false,
